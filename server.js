@@ -71,12 +71,20 @@ app.get("/test", (req, res) => {
 });
 
 // Upload route
-app.post("/upload", upload.single("file"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send("No file uploaded.");
+app.post(
+  "/upload",
+  (req, res, next) => {
+    next();
+  },
+  upload.single("file"),
+  (req, res) => {
+    if (!req.file) {
+      return res.status(400).send("No file uploaded.");
+    }
+
+    res.redirect("/");
   }
-  res.json({ success: true, filename: req.file.filename });
-});
+);
 
 // Error handling middleware for multer
 app.use((error, req, res, next) => {
