@@ -127,6 +127,11 @@ app.get("/view", (req, res) => {
   });
 });
 
+app.get("/download/:file", (req, res) => {
+  const filePath = path.join(__dirname, "filestorage", req.params.file);
+  res.download(filePath); // Express helper sets headers and streams the file
+});
+
 app.listen(port, () => {
   console.log(`Backend server is running on http://localhost:${port}`);
 });
