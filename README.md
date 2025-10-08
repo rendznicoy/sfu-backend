@@ -6,7 +6,7 @@ Backend server for handling single file uploads using **Express.js**, **Multer**
 This backend accepts file uploads from the React frontend, stores them on the server, and provides routes to view or delete files. It uses EJS for templating and Tailwind CSS for a simple UI.
 
 ## Features
-- Upload a single file from a React client or an HTML form.
+- Upload a single file from a client or an HTML form.
 - Delete files by filename.
 - View all uploaded files in JSON or via an EJS-rendered page.
 - Static route to serve uploaded files.
